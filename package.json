@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/EMisaelG/PrimerOpcion/issues"
   },
-  "homepage": "https://github.com/EMisaelG/PrimerOpcion#readme"
+  "homepage": "https://github.com/EMisaelG/PrimerOpcion#readme",
+  "dependencies": {
+    "typescript": "^3.7.2"
+  }
 }
