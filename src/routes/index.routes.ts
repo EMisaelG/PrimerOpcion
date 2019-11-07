@@ -1,8 +1,9 @@
 import { Router } from 'express';
+import { bienvenida } from '../controllers/index.controller'
 
 const router = Router();
 
 router.route('/')
-    .get((req,res) => res.json('Holi'));
+    .get(bienvenida);
 
 export default router;
