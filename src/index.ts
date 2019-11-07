@@ -1,5 +1,8 @@
 import app from './app';
 
-app.listen(3000)
+function main(){
+    app.listen(app.get('port'));
+    console.log('Servidor en el puerto', app.get('port'));
+}
 
-console.log('Servidor en el puerto 3,000')
+main();
