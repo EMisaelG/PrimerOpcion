@@ -1,7 +1,8 @@
 import express, { Application } from 'express';
 import authRoutes from './routes/auth';
 import morgan from 'morgan';
-import IndexRouteres from  './routes/index.routes';
+import IndexRoutes from  './routes/index.routes';
+import PostRoutes from  './routes/post.routes';
 
 
 const app: Application = express();
@@ -12,6 +13,7 @@ app.use(authRoutes);
 
 //middelware
 app.use(morgan('dev'));
-app.use(IndexRouteres);
+app.use(IndexRoutes);
+app.use('/posts',PostRoutes);
 
 export default app;
