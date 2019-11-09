@@ -8,13 +8,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const db_1 = require("../db");
+const db_1 = __importDefault(require("../db"));
 function getPosts(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const conn = yield db_1.conectar();
-        const sexo = yield conn.query('SELECT * FROM sexo');
-        res.json(sexo);
+        const promiseconectando = db_1.default.promise();
+        try {
+            const sexo = yield promiseconectando.query('SELECT * FROM sexo');
+            return res.json(sexo);
+        }
+        catch (error) {
+            console.log(error.message);
+        }
+        promiseconectando.end();
     });
 }
 exports.getPosts = getPosts;

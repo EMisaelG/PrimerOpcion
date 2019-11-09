@@ -1,26 +1,13 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const mysql2_1 = require("mysql2");
-function conectar() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const conectando = yield mysql2_1.createPool({
-            host: 'https://3.13.108.243/',
-            user: 'esteban',
-            password: 'Pechan_1',
-            database: 'inaesa',
-            connectionLimit: 10
-        });
-        return conectando;
-    });
-}
-exports.conectar = conectar;
+const conectando = mysql2_1.createPool({
+    host: 'ec2-3-13-108-243.us-east-2.compute.amazonaws.com',
+    port: 3306,
+    user: 'esteban',
+    password: 'Pechan_1',
+    database: 'inaesa',
+    connectionLimit: 10
+});
+exports.default = conectando;
 //# sourceMappingURL=db.js.map
