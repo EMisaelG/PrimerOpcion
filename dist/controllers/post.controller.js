@@ -27,4 +27,67 @@ function getPosts(req, res) {
     });
 }
 exports.getPosts = getPosts;
+function createPosts(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const promiseconectando = db_1.default.promise();
+        try {
+            const nsexo = req.body;
+            yield promiseconectando.query('INSERT INTO sexo SET ?', [nsexo]);
+            return res.json({
+                message: 'Creado'
+            });
+        }
+        catch (error) {
+            console.log(error.message);
+        }
+        promiseconectando.end();
+    });
+}
+exports.createPosts = createPosts;
+function getPost(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const id = req.params.postId;
+        const promiseconectando = db_1.default.promise();
+        try {
+            const sexo = yield promiseconectando.query('SELECT * FROM sexo WHERE idsexo = ?', [id]);
+            return res.json(sexo);
+        }
+        catch (error) {
+            console.log(error.message);
+        }
+        promiseconectando.end();
+    });
+}
+exports.getPost = getPost;
+function deletePost(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const id = req.params.postId;
+        const promiseconectando = db_1.default.promise();
+        try {
+            yield promiseconectando.query('DELETE FROM sexo WHERE idsexo = ?', [id]);
+            console.log('Eliminado');
+        }
+        catch (error) {
+            console.log(error.message);
+        }
+        promiseconectando.end();
+    });
+}
+exports.deletePost = deletePost;
+function updatePost(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const id = req.params.postId;
+        const updatesexo = req.body;
+        const promiseconectando = db_1.default.promise();
+        try {
+            yield promiseconectando.query('UPDATE sexo SET ? WHERE idsexo = ?', [updatesexo, id]);
+            console.log('Actualizado');
+        }
+        catch (error) {
+            console.log(error.message);
+        }
+        promiseconectando.end();
+    });
+}
+exports.updatePost = updatePost;
 //# sourceMappingURL=post.controller.js.map
