@@ -4,11 +4,11 @@ const express_1 = require("express");
 const sexo_controller_1 = require("../controllers/sexo.controller");
 const router = express_1.Router();
 router.route('/')
-    .get(sexo_controller_1.getPosts)
-    .post(sexo_controller_1.createPosts);
-router.route('/:postId')
-    .get(sexo_controller_1.getPost)
-    .delete(sexo_controller_1.deletePost)
-    .put(sexo_controller_1.updatePost);
+    .get(sexo_controller_1.getSexos)
+    .post(sexo_controller_1.createSexo);
+router.route('/:sexoId')
+    .get(sexo_controller_1.getSexo)
+    .delete(sexo_controller_1.deleteSexo)
+    .put(sexo_controller_1.updateSexo);
 exports.default = router;
-//# sourceMappingURL=post.routes.js.map
+//# sourceMappingURL=sexo.routes.js.map

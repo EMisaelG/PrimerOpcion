@@ -2,7 +2,7 @@ import express, { Application } from 'express';
 import authRoutes from './routes/auth';
 import morgan from 'morgan';
 import IndexRoutes from  './routes/index.routes';
-import PostRoutes from  './routes/post.routes';
+import PostRoutes from  './routes/sexo.routes';
 import bodyParser from 'body-parser';
 
 
